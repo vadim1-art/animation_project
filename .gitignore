@@ -1,10 +1,1 @@
-# Python скомпилированные файлы и кэш
-__pycache__/
-*.py[cod]
-*$py.class
 
-venv/
-.venv/
-.idea/
-*.swp
-*.swo
