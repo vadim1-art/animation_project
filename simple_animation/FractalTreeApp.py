@@ -8,7 +8,6 @@ class FractalTreeApp:
     self.root = root
     self.root.title("Фрактальное дерево (Tkinter)")
 
-    # Размеры окна
     self.width = 800
     self.height = 600
 
@@ -18,11 +17,11 @@ class FractalTreeApp:
     )
     self.canvas.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
-    # Панель управления (слайдеры)
+    # Панель управления 
     control_frame = tk.Frame(root, bg="#f0f0f0", padx=10, pady=10)
     control_frame.pack(side=tk.BOTTOM, fill=tk.X)
 
-    # 1. Слайдер для угла ветвления (пункт 2 задания)
+    # 1. Слайдер для угла ветвления
     tk.Label(
         control_frame, text="Угол ветвления (°):", bg="#f0f0f0", font=("Arial", 10)
     ).pack(side=tk.LEFT, padx=5)
@@ -36,7 +35,7 @@ class FractalTreeApp:
     self.angle_slider.set(25)  # Начальный угол по умолчанию
     self.angle_slider.pack(side=tk.LEFT, padx=5, fill=tk.X, expand=True)
 
-    # Слайдер для количества итераций (глубины рекурсии)
+    # Слайдер для количества итераций
     tk.Label(
         control_frame, text="Итерации:", bg="#f0f0f0", font=("Arial", 10)
     ).pack(side=tk.LEFT, padx=5)
@@ -63,7 +62,6 @@ class FractalTreeApp:
     x_end = x + length * math.cos(angle)
     y_end = y + length * math.sin(angle)
 
-    # Задаем цвет и толщину: стволы толще и коричневые, листья тоньше и зеленые
     color = "#8B4513" if depth > 3 else "#228B22"
     width = max(1, depth // 2)
 
@@ -73,7 +71,6 @@ class FractalTreeApp:
     # Получаем угол из слайдера и переводим в радианы
     branch_angle = math.radians(self.angle_slider.get())
 
-    # Коэффициент убывания длины (пункт 1 задания)
     length_scale = 0.75
 
     # Рекурсивный вызов для двух дочерних ветвей (влево и вправо)
@@ -89,12 +86,10 @@ class FractalTreeApp:
 
     depth = self.depth_slider.get()
 
-    # Начальные координаты ствола (снизу по центру экрана)
     start_x = self.width // 2
     start_y = self.height - 40
     initial_length = 140
 
-    # -math.pi / 2 задает направление строго вверх
     self.draw_branch(start_x, start_y, initial_length, -math.pi / 2, depth)
 
 
