@@ -1,0 +1,14 @@
+# Python скомпилированные файлы и кэш
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Настройки редакторов и IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Системные файлы ОС
+.DS_Store
+Thumbs.db
